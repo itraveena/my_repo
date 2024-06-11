@@ -1,13 +1,14 @@
 pipeline {
     agent any
+    
     tools {
-        maven 'Maven'
+        maven 'Maven-3.9.7' // Replace 'Maven-3.9.7' with the actual name of your Maven installation
     }
 
     stages {
         stage('Git Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/ZudaPradana/sonar']])
+                checkout scm
                 echo 'Git Checkout Completed'
             }
         }
